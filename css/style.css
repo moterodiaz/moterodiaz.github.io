@@ -781,12 +781,18 @@ a:hover {
 }
 
 .work-img {
-  display: block;
-  overflow: hidden;
+  width: 100%; /* Ensures the image container takes up the full width */
+  height: 200px; /* Set a fixed height for all image containers */
+  overflow: hidden; /* Hides any part of the image that overflows the container */
+  display: flex; /* Enables flexbox for centering */
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center; /* Centers the image vertically */
 }
 
 .work-img img {
-  transition: all 1s;
+  width: 100%; /* Ensures the image scales to fit the width */
+  height: 100%; /* Ensures the image scales to fit the height */
+  object-fit: cover; /* Crops the image to fit the container while maintaining aspect ratio */
 }
 
 .work-content {

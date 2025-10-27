@@ -1,0 +1,206 @@
+Introduction to Sensors, Instrumentation, & Measurement
+                                 Final Project Report
+                                       Spring 2025
+            By: Anna Braun, Mateo Otero-Diaz, Kuhu Jayaswal
+
+
+
+ I.​ Theoretical Analysis and Circuit Aspects
+        Our chosen sensor is a string gauge, a mechanism that changes resistance based on the
+strain applied on two micro-thin wires within the gauge. Its transfer equation can be defined
+as the following:
+
+
+                                              ∆𝑅        ∆𝐿
+                                               𝑅
+                                                   = 𝐺𝐹 𝐿
+                                             ∆𝑅             ∆𝐿
+                                            120Ω
+                                                   = 2. 1 𝐿
+                                                            ∆𝐿
+                                            ∆𝑅 = 252        𝐿
+
+
+
+        where GF is the gauge factor (it is 2.1 for our sensors), R is the starting resistance of
+the strain gauge (120 Ω in our case), ∆R is the change in resistance, ∆L is the local change in
+the length of the material, and L is the initial unstretched length. The ratio of lengths is
+known as the mechanical strain. Since strain is usually quite small, the change in resistance is
+also quite small. Strain is a normalized measure of how much the material deforms.
+
+
+        We will be computing the colloquially named “grip” which is applied to our
+mechanical device through the strain felt by the gauge when the device undergoes pressure.
+To actually connect our voltage change to the strain applied, we will use the circuit, shown in
+figure 2, where the only dynamically variable component is the string gauge. In other terms,
+when the pressure is applied to our mechanism and the string gauge undergoes strain, the
+resistor value within our circuit will change, consequently affecting the output voltage value
+we measure. Our transfer equation can be boiled down to the following equation:
+
+
+                              Equation 1: 𝑉𝑜𝑢𝑡 = 𝑉𝑟𝑒𝑓 + 𝐺(𝑉+ − 𝑉− )
+        In the above expression Vout is the voltage on pin 6, V+ is the voltage on pin 3, V- is
+the voltage on pin 2, and Vref is the voltage on pin 5. Note that Vref is set to 2.5V in our
+experiment. When we measure Vout relative to Vref , we can measure the change in voltage
+caused by the beam being bent up or down. In turn, G can be computed through:
+
+
+                                                                    10 000 Ω
+                                    Equation 2: 𝐺 = 1 +                𝑅𝐹
+
+
+
+
+        G is the gain in this situation and is completely dependent on the value of RF, where
+RF is the value of the reference resistor between pins 1 and 8 shown in figure 1. Our gain is
+equal to 501 due to the fact that our chosen reference resistance is 200 Ohms, as shown in
+figure 2.
+
+
+
+
+     ​        Figure 1: The pins allocation and circuit diagram for the AD623 chip used.
+         We should then first compute what our V+ and V- should be:
+
+
+                 ​       𝑉+ = 𝑉𝑖𝑛 − 𝐼𝑆𝐺𝑅𝑇𝑜𝑡𝑎𝑙 − 𝑆𝐺 | 𝑉− = 𝑉𝑖𝑛 − 𝐼𝑅𝑇𝑜𝑡𝑎𝑙
+
+
+​       Where RTotal - SG and ISG are the current and total resistance of the wheatstone bridge
+leg that includes the string gauge. Additionally RTotal and I are the current and total resistance
+of the other wheatstone bridge leg. We can then individually compute these values
+
+
+                     𝑅𝑇𝑜𝑡𝑎𝑙 − 𝑆𝐺 = ( 120 + ∆𝑅 + 115 + 10)Ω | 𝑅𝑇𝑜𝑡𝑎𝑙 = 242 Ω
+
+
+                                                  5𝑉                  5𝑉
+                                     𝐼𝑆𝐺 =     𝑅𝑇𝑜𝑡𝑎𝑙 − 𝑆𝐺
+                                                             |𝐼 =    𝑅𝑇𝑜𝑡𝑎𝑙
+
+
+
+
+​        We can then compute both legs of equation 4:
+
+
+                                              120
+                           𝑉+ = 5(1 + 225 + ∆𝑅 ) 𝑉 | 𝑉− = 2. 5 𝑉
+​      Finally, by inserting both of these values into equation 2, we can determine a transfer
+equation between the output voltage from the circuit and the strain the string gauge
+undergoes:
+                                                       120
+                    𝑉𝑜𝑢𝑡 = 2. 5 𝑉 + 501(5(1 + 225 + ∆𝑅 ) 𝑉 − 2. 5 𝑉)
+                                                       300 600 𝑉
+                               𝑉𝑜𝑢𝑡 = 1251 𝑉 −                   ∆𝐿
+                                                     225 + 252    𝐿
+
+
+
+
+​      We will later relate the strain and input force through a transfer equation tailored to
+the geometry and specific situation of our mechanism.
+
+
+
+
+ Figure 2: Circuit diagram for our amplified and filtered string gauge-based “grip” (force)
+           strength tester. Includes a low-pass filter of 0.5 RC and a gain of 501.
+
+
+
+
+Figure 3: Our circuit connected to the grip strength hand exerciser via the strain gauge.
+II.​ Circuit Description
+
+ 1.​   Wheatstone Bridge:
+         The strain gauge is placed in one leg of a Wheatstone bridge, along with two fixed
+121 Ω resistors and two additional balancing resistors (115 Ω and 10 Ω). When no strain is
+applied, the bridge is close to balanced and the output is close to zero. When the strain gauge
+is stretched or compressed, its resistance changes slightly, creating a small voltage difference
+across the bridge.
+
+
+ 2.​   Instrumentation Amplifier (AD263):
+        The small voltage difference from the bridge is amplified using an AD623
+instrumentation amplifier. The gain is set by a 200 Ω resistor between pins 1 and 8. This
+boosts the signal so small changes in strain create noticeable changes in output voltage. The
+reference pin (V_ref) is connected to 2.5V to center the output signal around 2.5V, allowing
+us to measure both positive and negative changes.
+
+
+ 3.​   Input Filter:
+       A 10 nF capacitor is placed across the amplifier's differential inputs. This acts as a
+low-pass filter to reduce high-frequency noise before amplification.
+
+
+ 4.​   Output Filter:
+       After the amplifier, the signal passes through a 5 kΩ resistor and a 100 μF capacitor,
+forming a second low-pass filter. This smooths the output voltage and helps eliminate noise,
+giving a clean and stable signal for data collection.
+III.​ Bode Plot
+        The circuit is tuned for accurate, low-noise strain measurement. The Wheatstone
+bridge provides a sensitive means of detecting resistance changes, the AD623 amplifier offers
+high gain with a stable reference offset, and the input and output filters collectively suppress
+unwanted noise. The chosen component values and filter characteristics reflect a design
+optimized for stable, low-frequency strain monitoring. These aspects can be observed in
+figure 4.
+
+
+
+
+   Figure 4: Bode plot of the gain and phase of our circuit with the 200-ohm gain resistor
+ removed. A cut-off frequency of 0.318 Hertz can be observed as the inflection point for the
+                                 steady decrease of the gain.
+IV.​ Data Analysis
+       To convert the voltage signal into physical force measurements, a calibration
+procedure is performed. Known masses are applied to the sensor and corresponding output
+voltages are recorded. These masses are converted into force in newtons using the equation.
+
+                                   𝐹=   (    𝑚
+                                            1000   ) · 9. 80665
+where m is the mass in grams. A linear regression is then performed on the resulting (voltage,
+force) data pairs to establish an empirical relationship of the form:
+                                        𝐹 = 𝑎𝑉 + 𝑏
+
+
+       However, the sensor is positioned at a 45-degree angle relative to the direction of
+applied force. Because strain gauges measure the normal component of strain, the measured
+                                                              2   ◦
+strain is related to the actual axial strain by a factor of 𝑐𝑜𝑠 (45 ) = 0. 5. Therefore, to
+compute the true axial force, the force computed from the calibration curve must be corrected
+by a factor of two:
+                                       𝐹 = 2(𝑎𝑉 + 𝑏)
+
+
+         This final equation provides a direct conversion from the measured output voltage to
+the true applied grip force. It incorporates both the calibration-derived linear model and the
+geometric correction due to sensor orientation, ensuring the resulting force values accurately
+reflect the mechanical input to the system. The calibrations curves can be seen in figure 5:
+
+
+
+
+ Figure 5: The subplots of calibration (Weight vs Voltage) and correlation between Voltage
+                                      and final Force.
+V.​ Final Measurements and Evaluations
+
+
+
+
+ Figure 6: The direct output from Matlab script where the voltage measured was inputted to
+                                    calculate the force.
+
+        Using the described system, a female volunteer was asked to exert grip force on the
+mechanism. The measured output voltage was 2.92 V. Substituting this value into the final
+force equation resulted in a computed grip force of around 277.4 N. According to published
+ergonomic data, the average grip strength for females is approximately 292 N. Given the
+inherent biological variability and potential slight measurement offsets, our result falls well
+within a reasonable and expected range. This supports both the reliability of our sensor
+calibration and the accuracy of our instrumentation design.
+
+        In conclusion, the sensor system accurately measured grip strength through a
+well-designed circuit that carefully considered gain, frequency response, and calibration. The
+output values demonstrate the device’s effectiveness in converting small strains into usable,
+reliable physical measurements.
+

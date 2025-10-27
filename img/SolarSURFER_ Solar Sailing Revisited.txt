@@ -1,0 +1,125 @@
+SolarSURFER:
+Solar Surﬁng
+Revisited
+
+Arya Kazemnia & Mateo Otero-Diaz
+CubeSat Developers Workshop 2025
+Who are we?
+                    What is Solar Sailing?
+● Uses photons’ momentum by reﬂecting them off a surface
+    ○ Like a sailboat but with light instead of wind
+● Sail size is directly proportional to the thrust generated
+    ○ Bigger is better!
+              Overview Of Mission
+
+● Apply and demonstrate the
+  feasibility of solar sail propulsion.
+● Innovate deployment procedure for
+  the sails.
+● Demonstrate the feasibility of High
+  Gain Antenna (HGA) sail.
+                             Concept of Operations
+Phase 1: Launch
+Satellite is launched into
+Low Earth Orbit
+                                                     Phase 4: High Gain Antenna Testing
+Phase 2: Deployment                                  Satellite begins operating its HGA
+Satellite detumbles and
+deploys its sail
+                                                        Phase 5: End of Life
+                                                        Satellite will either turn
+Phase 3: Orbit Raising
+                                                        sail to fall into Earth’s
+Satellite begins to raise
+                                                        atmosphere or drift
+its orbit and collects
+                                                        away until it cannot
+imagery of the surface of
+                                                        communicate
+the Earth
+     SolarSURFER Module Design
+●   Dedicated 4U volume for solar sail.
+
+     ○     Actual volume will be approximately 200cm3 less due to deployment systems, electrical
+
+           wiring, fasteners, and detonators.
+
+●   1U of the remaining 2U will be utilized for “life essentials”.
+
+     ○     Battery pack, OBC, ADCS kit, transceivers
+
+●   Last 1U will house scientiﬁc instrumentation.
+
+     ○     Hyperspectral imaging sensors, ﬁber-optic cabling,
+
+●   Tuna-can pod volume 1 will be utilized for horn extension mechanism (3 nitinol wires)
+
+●   Tuna-can pod volume 2 will be utilized for a 9cm lens for hyperspectral imaging
+                          Deployment
+Separate from Launcher   Detumble   Open Panels   Open Solar Sail
+                               Average Operations
+●   SolarSURFER uses the ADCS system to
+    orient the cubesat towards the
+    observation target
+●   Hyperspectral Imaging takes pictures of
+    the surface
+●   SolarSURFER reorients itself towards the
+    sun to continue propulsion
+●   Over JHU we downlink our collected data
+     ○    Battery Health and Charge
+     ○    Photos
+     ○    IMU Data
+     ○    Orientation Data
+●   We uplink commands and analyse data
+●   Repeat!
+                                Sail Experiments
+Sail Composition
+ ●   What is the reﬂectivity and emissivity of our
+     material?
+ ●   What’s the best layer conﬁguration?
+Communications
+ ●   How does folding the sail affect signal strength?
+ ●   Test different reﬂectarray shapes and sizes
+Deployment
+ ●   How do we extend the sail?
+                   Material Selection
+● Backbone: CP1 or Kapton ﬁlms
+  ○ Optimal thermal stability, tensile strength, and resistance to
+     UV radiation and atomic oxygen
+            Folding Techniques Overview
+● Miura-Ori Fold: A
+  single-degree-of-freedom
+  pattern, allowing rapid and
+  reliable deployment with
+  high packing efficiency.
+● Box Pleated Fold: A rigid
+                                Miura-Ori Fold (top)   Box Pleated (below)
+  and structured fold,
+  distributing stress evenly
+  and providing better
+  material control during
+  deployment.
+                                      Deployment                 This is the Cubesat
+●   20m x 20m Sail needs to be unfurled from the 4U
+
+    compartment
+
+●   Deployment will be carried out through a backbone of SMA
+
+●   Booms will be initially deployed through Induction Heating
+
+    through a PWM circuit
+
+●   Passive heating from Sun prevents booms from losing their
+
+    shape
+                        Sail High Gain Antenna
+●   Sail will be ﬁtted with an array of patches to create a reﬂectarray
+●   Building on previous reﬂectarray designs, we seek to build a ﬂexible one
+●   Array simulation on HFSS dictates a concentric pattern
+                        Sail High Gain Antenna
+●   Normal horn design requires too much heating and deployment
+●   Reﬂector design allows for everything to ﬁt in the 6U form factor
+●   Horn can be minimized saving space
+●   Reﬂector is deployed and adjusted by a nitinol network
+

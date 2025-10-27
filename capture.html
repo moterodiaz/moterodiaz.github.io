@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Capture Olin — Interactive Game — Mateo Otero‑Diaz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    :root{ --accent:#375aee; --card-shadow:0 8px 30px rgba(55,90,238,0.08); --glass:rgba(255,255,255,0.7); }
+    body{ background: linear-gradient(180deg,#f7fbff 0%,#ffffff 45%); color:#222; }
+    .navbar{ background: rgba(255,255,255,0.88); backdrop-filter: blur(6px); border-bottom:1px solid #eee; }
+    .page-header{ margin-top:70px; margin-bottom:1rem; text-align:center; }
+    .page-header h1{ color:var(--accent); font-weight:700; }
+    .card-visual{ border-radius:.5rem; padding:1rem; background:#fff; box-shadow:var(--card-shadow); border:1px solid rgba(0,0,0,0.04); }
+    .work-media{ height:260px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:.35rem; background:var(--glass); }
+    .work-media video, .work-media img{ width:100%; height:100%; object-fit:cover; }
+    .btn-back{ background:var(--accent); border-color:var(--accent); color:#fff; }
+    .spec-list{ margin-top:.5rem; }
+    .spec-list li{ margin-bottom:.35rem; }
+    .muted { color:#6c757d; }
+    @media(max-width:575px){ .work-media{height:180px} }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top"><div class="container"><a class="navbar-brand" href="index.html">Portfolio</a></div></nav>
+
+  <main class="container" style="padding-top:110px;">
+    <header class="page-header">
+      <h1>Capture Olin — Turn‑Based Strategy Game</h1>
+      <p class="lead">Two‑player simultaneous turn resolution, custom input, and MVC‑style architecture</p>
+    </header>
+
+    <section class="card-visual mb-3">
+      <div class="row align-items-center">
+        <div class="col-md-5 mb-3 mb-md-0">
+          <div class="work-media">
+            <video class="img-fluid" controls playsinline preload="metadata">
+              <source src="img/SoftDes Video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div class="col-md-7">
+          <p>
+            Capture Olin is a two‑player, turn‑based strategy game implemented in Python with Pygame.
+            Players submit moves simultaneously each round and results resolve together, emphasizing predictive
+            strategy and player‑to‑player interaction rather than randomness.
+          </p>
+
+          <ul class="spec-list">
+            <li><strong>Role:</strong> game systems design, input controller integration, and gameplay balancing.</li>
+            <li><strong>Tech stack:</strong> Python (3.12+), Pygame, custom MVC organization for separation of concerns.</li>
+            <li><strong>Run locally:</strong> clone https://github.com/olincollege/Turn-Based and run python3 Game.py.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-3">
+      <h4>Project goal</h4>
+      <p>
+        Build a well‑structured, technically sound, and visually engaging two‑player strategy game that supports
+        simultaneous move submission and deterministic resolution. The project focuses on clear UX for turn submission,
+        predictable unit behavior, and replayable mechanics for testing balance.
+      </p>
+    </section>
+
+    <section class="mb-3">
+      <h4>Unique features</h4>
+      <ul>
+        <li>Simultaneous turn submission: both players enter moves independently; orders execute together.</li>
+        <li>Custom input controller: combines mouse/trackpad and keyboard for intuitive selection and unit movement.</li>
+        <li>Model‑View‑Controller architecture: clean separation of game logic, rendering, and input handling to improve testing and scalability.</li>
+      </ul>
+    </section>
+
+    <section class="mb-3">
+      <h4>Getting started</h4>
+      <p class="muted">Prerequisites</p>
+      <ul>
+        <li>Python 3.12 or higher</li>
+        <li>Pygame</li>
+      </ul>
+      <p class="muted">Install dependencies</p>
+      <pre class="muted">pip install pygame</pre>
+    </section>
+
+    <section class="mb-3">
+      <h4>Running the game</h4>
+      <p>Clone the repository and run the main script:</p>
+      <pre class="muted">git clone https://github.com/olincollege/Turn-Based
+cd Turn-Based
+python3 Game.py</pre>
+    </section>
+
+    <section class="mb-3">
+      <h4>Game controls</h4>
+      <ul>
+        <li>Click to select which building you want to send Oliners from/to.</li>
+        <li>Use number keys to select how many Oliners to send.</li>
+        <li>Press Space to confirm and submit your order for the round.</li>
+        <li>Press Escape to cancel selection or exit the game.</li>
+        <li>Pass the input device between players each turn.</li>
+      </ul>
+    </section>
+
+    <section class="mb-3">
+      <h4>Game rules (summary)</h4>
+      <ul>
+        <li>The map is a network of buildings (nodes) connected by paths (edges).</li>
+        <li>Each building starts neutral or controlled by a player. Players issue orders simultaneously each round.</li>
+        <li>Oliners may only move along connected edges between buildings.</li>
+        <li>Home base spawns 5 Oliners at the start of each round; controlled buildings spawn 1 bonus Oliner.</li>
+        <li>The player with the most Oliners in a building controls it; ties favor the last attacker.</li>
+        <li>Win by capturing the opponent's home base while retaining control of your own.</li>
+      </ul>
+    </section>
+
+    <section class="mb-3">
+      <h4>Testing & contribution</h4>
+      <p>Run the project's unit tests with pytest:</p>
+      <pre class="muted">pytest</pre>
+      <p>Repository and demos are available on GitHub:</p>
+      <p><a href="https://github.com/olincollege/Turn-Based" target="_blank">https://github.com/olincollege/Turn-Based</a></p>
+    </section>
+
+    <section class="mb-3">
+      <h4>Media</h4>
+      <div class="work-media mb-2">
+        <video class="img-fluid" controls playsinline preload="metadata">
+          <source src="img/Game_2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <p class="muted">Short gameplay demo and overview links available in the project repo.</p>
+    </section>
+
+    <section class="mt-4">
+      <a href="index.html" class="btn btn-back">Back to Portfolio</a>
+    </section>
+  </main>
+
+  <footer class="text-center mt-5 mb-4"><small>© Mateo Otero‑Diaz</small></footer>
+
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+</body>
+</html>

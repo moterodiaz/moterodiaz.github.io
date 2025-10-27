@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hand Grip Dynamometer — Mateo Otero‑Diaz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    :root{ --accent:#375aee; --card-shadow:0 8px 30px rgba(55,90,238,0.08); --glass:rgba(255,255,255,0.75); }
+    body{ background: linear-gradient(180deg,#f7fbff 0%,#ffffff 45%); color:#222; }
+    .navbar{ background: rgba(255,255,255,0.92); backdrop-filter: blur(6px); border-bottom:1px solid #eee; }
+    .page-header{ margin-top:70px; margin-bottom:1rem; text-align:center; }
+    .page-header h1{ color:var(--accent); font-weight:700; }
+    .card-visual{ border-radius:.5rem; padding:1rem; background:#fff; box-shadow:var(--card-shadow); border:1px solid rgba(0,0,0,0.04); }
+    .work-img{ height:220px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:.35rem; background:var(--glass); }
+    .work-img img{ width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+    .work-img:hover img{ transform:scale(1.03); }
+    .btn-back{ background:var(--accent); border-color:var(--accent); color:#fff; }
+    .spec-list{ margin-top:.5rem; }
+    .spec-list li{ margin-bottom:.35rem; }
+    pre.code { background:#f7f9ff; padding:.75rem; border-radius:.35rem; overflow:auto; }
+    @media(max-width:575px){ .work-img{height:140px} }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container"><a class="navbar-brand" href="index.html">Portfolio</a></div>
+  </nav>
+
+  <main class="container" style="padding-top:110px;">
+    <header class="page-header">
+      <h1>Hand Grip Dynamometer</h1>
+      <p class="lead">Instrumentation, circuit design, calibration, and data analysis for a grip‑force tester</p>
+    </header>
+
+    <section class="card-visual mb-3">
+      <div class="row align-items-center">
+        <div class="col-md-5 mb-3 mb-md-0">
+          <a href="img/ISIM.jpg" data-lightbox="grip">
+            <div class="work-img"><img src="img/ISIM.jpg" alt="Hand Grip Dynamometer"></div>
+          </a>
+        </div>
+        <div class="col-md-7">
+          <p>
+            Developed a hand grip dynamometer using a strain (string) gauge in a Wheatstone bridge, an AD623
+            instrumentation amplifier, and low‑pass filtering to measure grip force with a stable, low‑noise output.
+            The project included circuit design, calibration with known masses, and data analysis in MATLAB.
+          </p>
+
+          <ul class="spec-list">
+            <li><strong>Sensing:</strong> string gauge (120 Ω nominal, GF ≈ 2.1) in one bridge leg.</li>
+            <li><strong>Amplification:</strong> AD623 instrumentation amplifier with RF = 200 Ω → gain ≈ 501; Vref = 2.5 V.</li>
+            <li><strong>Filtering:</strong> input capacitor across differential inputs and an RC output low‑pass for noise suppression.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-3">
+      <h4>Theory & circuit</h4>
+      <p>
+        The strain gauge produces a small change in resistance proportional to local strain. The Wheatstone bridge
+        converts resistance change to a differential voltage which is amplified by the AD623. Gain selection follows:
+      </p>
+      <pre class="code">G = 1 + 10 000 / RF   (RF = 200 Ω → G ≈ 501)</pre>
+      <p>
+        Vout is referenced to 2.5 V so that positive and negative strain produce readable voltage excursions around mid‑rail.
+        Input and output RC stages reduce high‑frequency noise; the tuned cutoff observed in analysis is ≈ 0.318 Hz for the chosen filter values.
+      </p>
+    </section>
+
+    <section class="mb-3">
+      <h4>Calibration & data analysis</h4>
+      <p>
+        Calibration was performed by applying known masses, converting to force (F = m/1000 · 9.80665) and recording the
+        corresponding output voltage. A linear regression produced an empirical conversion F = a·V + b, and a geometric
+        correction (sensor at 45°) was applied: the true axial force is F_true = 2·(a·V + b).
+      </p>
+
+      <p>
+        Data processing and plots were produced in MATLAB; calibration plots and processed measurements verify linearity
+        and low noise after filtering.
+      </p>
+    </section>
+
+    <section class="mb-3">
+      <h4>Final measurements</h4>
+      <p>
+        Example measurement: a volunteer produced Vout = 2.92 V. After applying the calibration curve and the 45° correction,
+        the computed grip force was ≈ 277.4 N, consistent with expected ergonomic ranges for the tested cohort.
+      </p>
+    </section>
+
+    <section class="mb-3">
+      <h4>Tools & methods</h4>
+      <ul>
+        <li>Analog circuit design and prototyping (AD623 instrumentation amp), PCB wiring and bench setup.</li>
+        <li>Signal conditioning with passive RC filtering to set a low cutoff and reduce noise.</li>
+        <li>Data analysis and plotting in MATLAB; calibration via weighted linear regression.</li>
+      </ul>
+    </section>
+
+    <section class="mt-4">
+      <a href="index.html" class="btn btn-back">Back to Portfolio</a>
+    </section>
+  </main>
+
+  <footer class="text-center mt-5 mb-4"><small>© Mateo Otero‑Diaz</small></footer>
+
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+</body>
+</html>

@@ -30,6 +30,36 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+  <style>
+    /* Center and align portfolio cards like capture.html */
+    :root{ --accent: #375aee; }
+
+    /* constrain portfolio width and center page content */
+    .portfolio-container { max-width: 1100px; margin: 0 auto; }
+
+    /* card layout */
+    .work-box { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 1rem; }
+    .work-box .work-img { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: .5rem; background: rgba(255,255,255,0.75); border: 1px solid rgba(0,0,0,0.04); margin-bottom: .6rem; }
+    .work-box .work-img img, .work-box .work-img video { width: 100%; height: 100%; object-fit: cover; }
+    .work-box .work-content { width: 100%; }
+    .work-box .w-title { color: var(--accent); font-weight: 600; margin-bottom: .25rem; }
+    .work-box .w-more { color: #6c757d; font-size: .95rem; }
+
+    /* make whole card clickable while keeping centered layout */
+    .work-box a { color: inherit; text-decoration: none; display: block; }
+
+    /* ensure rows of cards are centered */
+    .portfolio-mf .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+
+    /* individual card column sizing */
+    .portfolio-mf .col-md-4 { max-width: 340px; flex: 1 1 340px; display: flex; }
+
+    /* small screens */
+    @media (max-width: 575px) {
+      .work-box .work-img { height: 140px; }
+      .portfolio-mf .col-md-4 { max-width: 100%; flex: 1 1 100%; }
+    }
+  </style>
 </head>
 
 <body id="page-top">
@@ -109,14 +139,24 @@
                 </div>
                 <div class="skill-mf">
                   <p class="title-s">Skills</p>
-                  <span>CAD</span> 
+                  <span>Mechanical Design</span> 
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                       aria-valuemax="100"></div>
                   </div>
-                  <span>Analysis</span> 
+                  <span>Mechanical Analysis</span> 
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                      aria-valuemax="100"></div>
+                  </div>
+                  <span>Embedded Systems</span> 
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
+                      aria-valuemax="100"></div>
+                  </div>
+                  <span>Integration and Testing</span> 
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                       aria-valuemax="100"></div>
                   </div>
                   <span>Fabrication</span> 
@@ -140,21 +180,20 @@
                   </div>
                   <p class="lead">
                     Skilled in mechanical design and simulation, I bring hands-on experience with CAD tools such as 
-                    Autodesk Inventor, Fusion, and SolidWorks. I have worked on high-impact projects including deployable
-                    telescopes and CubeSats, applying analytical tools like Mathcad and ANSYS to justify design decisions.
-                    My work balances precision, performance, and practical implementation.
+                    Autodesk Inventor, Siemens NX, PTC CREO and SolidWorks. My design background extends from aerospace rigging systems,
+                    deployable telescopes and CubeSats, to embedded systems such as 2D scanners and dynamometers. I have a wealth of experience
+                    in mechanical design within different applications including aerospace, automotive, and consumer products.
                   </p>
                   <p class="lead">
-                    I have led technical teams and coordinated multi-university collaborations with institutions like JHU and 
-                    UC Berkeley. Using tools such as Notion, I create schedules, track deliverables, and improve
-                    documentation practices. I have presented at industry workshops and represented project goals in both
-                    technical and public-facing settings.
+                    My mechanical analysis experience includes stress analysis for aerospace rigging systems, collision and impact analysis 
+                    for automotive chassis, and material verification of geartrain teeth to validate strength and torque requirements. I use 
+                    tools such as ANSYS, MSC ADAMS, MSC NASTRAN, Mathcad, and MATLAB for analysis and verification, and I communicate technical results clearly to both 
+                    specialist and non‑technical audiences.
                   </p>
                   <p class="lead">
-                    My background includes fabrication, public outreach, and education. At a local nonprofit, I taught bike
-                    mechanics, improved sales through bilingual communication, and supported over 150 repairs and sales.
-                    This hands-on experience complements my engineering skill set and reflects my dedication to impactful,
-                    community-centered work.
+                    My skills extend beyond traditional mechanical work to include integration and testing (I&T) of precision metal seals and
+                    optical assemblies for the Da Vinci probe, embedded systems development for line‑following robots, 2D scanners and interactive consumer products, 
+                    data analysis for thermodynamic systems and probabilistic models through MATLAB and R, and software development for games and this website using Python, HTML, and CSS.
                   </p>
                 </div>
               </div>
@@ -175,7 +214,7 @@
             Areas of Expertise
           </h3>
           <p class="subtitle-a">
-            Design, analysis, and project management
+            Design, Analysis, I&T, Data Analysis
           </p>
           <div class="line-mf"></div>
         </div>
@@ -190,8 +229,8 @@
           <div class="service-content">
             <h2 class="s-title">Mechanical Design</h2>
             <p class="s-description text-center">
-              I am familiar with CAD tools such as Autodesk Inventor as well as Fusion, NX, and SolidWorks among others.
-              I have applied these skills on high-impact projects including deployable telescopes and CubeSats.
+              I am apt with CAD tools such as Autodesk Inventor, PTC CREO, Siemens NX, and SolidWorks among others.
+              I have applied these skills on high-impact projects including deployable telescopes, rigging systems, BAJA chassis, and CubeSats.
             </p>
           </div>
         </div>
@@ -204,7 +243,7 @@
           <div class="service-content">
             <h2 class="s-title">Mechanical Analysis</h2>
             <p class="s-description text-center">
-              I have experience with analytical tools such as Mathcad and ANSYS to justify design decisions and
+              I have experience with analytical tools such as Mathcad, MSC NASTRAN, MSC ADAMS and ANSYS to justify design decisions and
               ensure performance. My applied projects include automotive and aerospace systems.
             </p>
           </div>
@@ -216,10 +255,10 @@
             <span class="ico-circle"><i class="ion-android-phone-portrait"></i></span>
           </div>
           <div class="service-content">
-            <h2 class="s-title">Software Design</h2>
+            <h2 class="s-title">Software | Data Analysis</h2>
             <p class="s-description text-center">
-              I have experience with Python, MATLAB, and C++ for data analysis and simulation. I have applied these
-              skills to projects including games and data analysis
+              I have experience with Python, R, MATLAB, and C++ for data analysis and simulation. I have applied these
+              skills to projects including games and data analysis.
             </p>
           </div>
         </div>
@@ -230,11 +269,11 @@
             <span class="ico-circle"><i class="ion-clipboard"></i></span>
           </div>
           <div class="service-content">
-            <h2 class="s-title">Project Management</h2>
+            <h2 class="s-title">Integration and Testing</h2>
             <p class="s-description text-center">
-              My experience includes leading technical teams and coordinating multi-university collaborations with
-              institutions such as JHU and UC Berkeley. I have used tools such as Notion to create schedules, track
-              deliverables, and improve documentation practices.
+              I have hands‑on integration and testing (I&T) experience, leak testing, optical alignment and qualification
+              of precision metal seals and sapphire windows. These processes have contributed to veritable results and progress
+              on high-impact projects such as the Da Vinci probe.
             </p>
           </div>
         </div>
@@ -300,144 +339,131 @@
 
   <!--/ Section Portfolio Star /-->
   <section id="work" class="portfolio-mf sect-pt4 route">
-    <div class="container">
+    <div class="container portfolio-container">
       <div class="row">
         <div class="col-sm-12">
           <div class="title-box text-center">
-            <h3 class="title-a">
-              Portfolio
-            </h3>
-            <p class="subtitle-a">
-              Design Projects: Mechanical, Aerospace, and Software
-            </p>
+            <h3 class="title-a">Portfolio</h3>
+            <p class="subtitle-a">Design Projects: Mechanical, Aerospace, and Software</p>
             <div class="line-mf"></div>
           </div>
         </div>
       </div>
+
       <div class="row">
+        <!-- Solar Surfer -->
         <div class="col-md-4">
           <div class="work-box">
-            <a href="img/Poster.jpg" data-lightbox="gallery-mf">
+            <a href="cubesat.html">
               <div class="work-img">
-                <img src="img/Poster.jpg" alt="" class="img-fluid">
+                <img src="img/CubeSat.png" alt="Solar Surfer CubeSat" class="img-fluid">
               </div>
               <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title"> NASA Model-T Deployable Telescope Gear Train</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory"> Mechanical Design & Analysis</span> / <span class="w-date">Autodesk Inventor & PTC MathCAD</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
+                <h2 class="w-title">Solar Surfer CubeSat</h2>
+                <div class="w-more">Mechanical Design &amp; Analysis / Autodesk Fusion &amp; Femap</div>
               </div>
             </a>
           </div>
         </div>
+
+        <!-- ReFrame -->
         <div class="col-md-4">
           <div class="work-box">
-            <a href="img/CubeSat.png" data-lightbox="gallery-mf">
+            <a href="reframe.html">
               <div class="work-img">
-                <img src="img/CubeSat.png" alt="" class="img-fluid">
+                <img src="img/ReFrame.jpg" alt="Babson Buildathon ReFrame" class="img-fluid">
               </div>
               <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Solar Surfer CubeSat</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Mechanical Design & Analysis</span> / <span class="w-date">Autodesk Fusion & ANSYS</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
+                <h2 class="w-title">Babson Buildathon ReFrame</h2>
+                <div class="w-more">Embedded Software &amp; Mechanical Design / Python &amp; Fusion</div>
               </div>
             </a>
           </div>
         </div>
+
+        <!-- Hand Grip Dynamometer -->
         <div class="col-md-4">
           <div class="work-box">
-            <a href="img/ReFrame.jpg" data-lightbox="gallery-mf">
+            <a href="grip.html">
               <div class="work-img">
-                <img src="img/ReFrame.jpg" alt="" class="img-fluid">
+                <img src="img/ISIM.jpg" alt="Hand Grip Dynamometer" class="img-fluid">
               </div>
               <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Babson Buildathon ReFrame</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Embedded Software & Mechanical Design</span> / <span class="w-date">Autodesk Fusion & Python</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
+                <h2 class="w-title">Hand Grip Dynamometer</h2>
+                <div class="w-more">Mechanical Design &amp; Circuitry / SolidWorks &amp; Analog Design</div>
               </div>
             </a>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="img/ISIM.jpg" data-lightbox="gallery-mf">
-                <div class="work-img">
-                  <img src="img/ISIM.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">Hand Grip Dynamometer</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">Mechanical Design & Circuitry</span> / <span class="w-date">Solidworks & Circuit Design</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="img/Game_2.mp4" data-lightbox="gallery-mf">
-                <div class="work-img">
-                  <video class="img-fluid" autoplay muted loop>
-                    <source src="img/Game_2.mp4" type="video/mp4">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">Capture Olin: Interactive Game</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">Software Design</span> / <span class="w-date">Python</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
+      </div>
+
+      <div class="row" style="margin-top:1rem;">
+        <!-- Capture Olin -->
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="capture.html">
+              <div class="work-img">
+                <video class="img-fluid" autoplay muted loop playsinline>
+                  <source src="img/Game_2.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="work-content">
+                <h2 class="w-title">Capture Olin: Interactive Game</h2>
+                <div class="w-more">Software Design / Python</div>
+              </div>
+            </a>
           </div>
         </div>
+
+        <!-- NASA -->
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="nasa.html">
+              <div class="work-img">
+                <img src="img/nasa-1-logo-png-transparent.png" alt="NASA work thumbnail" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <h2 class="w-title">NASA — Selected Systems &amp; Integration</h2>
+                <div class="w-more">Mechanical Design, Integration &amp; Testing / Inventor &amp; ANSYS</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- add two project cards for the scanner and line‑follower -->
+      <div class="row" style="margin-top:1rem;">
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="scanner.html">
+              <div class="work-img">
+                <img src="img/Scanner_Assembly_2025-Sep-26_01-41-54AM-000_CustomizedView4381423334_png.png" alt="DIY 3D Scanner" class="img-fluid" onerror="this.src='img/CubeSat.png'">
+              </div>
+              <div class="work-content">
+                <h2 class="w-title">DIY 3D Scanner</h2>
+                <div class="w-more">Arduino + IR sensor / MATLAB visualization</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href="linebot.html">
+              <div class="work-img">
+                <img src="img/line_robot_front.JPG" alt="Line Sensing Robot" class="img-fluid" onerror="this.src='img/ISIM.jpg'">
+              </div>
+              <div class="work-content">
+                <h2 class="w-title">Line‑Sensing Robot</h2>
+                <div class="w-more">Arduino, IR reflectance array &amp; motor control</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    <!--/ added project cards /-->
+    </div>
+  </section>
   <!--/ Section Portfolio End /-->
 
 <!-- Edit this with comments from reputable institutions when they actually fw me -->

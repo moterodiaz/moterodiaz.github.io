@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Babson Buildathon — ReFrame — Mateo Otero‑Diaz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    :root{ --accent:#375aee; --card-shadow:0 8px 30px rgba(55,90,238,0.08); --glass:rgba(255,255,255,0.7); }
+    body{ background: linear-gradient(180deg,#f7fbff 0%,#ffffff 45%); color:#222; }
+    .navbar{ background: rgba(255,255,255,0.88); backdrop-filter: blur(6px); border-bottom:1px solid #eee; }
+    .page-header{ margin-top:70px; margin-bottom:1rem; text-align:center; }
+    .work-img{ height:220px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:.35rem; background:var(--glass); }
+    .work-img img{ width:100%; height:100%; object-fit:cover; }
+    .btn-back{ background:var(--accent); border-color:var(--accent); color:#fff; }
+    @media(max-width:575px){ .work-img{height:140px} }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top"><div class="container"><a class="navbar-brand" href="index.html">Portfolio</a></div></nav>
+
+  <main class="container" style="padding-top:110px;">
+    <header class="page-header">
+      <h1>Babson Buildathon — ReFrame</h1>
+      <p class="lead">Embedded software and mechanical design for the ReFrame buildathon project</p>
+    </header>
+
+    <section class="card-visual mb-3">
+      <div class="row align-items-center">
+        <div class="col-md-5 mb-3 mb-md-0">
+          <a href="img/ReFrame.jpg" data-lightbox="reframe">
+            <div class="work-img"><img src="img/ReFrame.jpg" alt="Babson Buildathon ReFrame"></div>
+          </a>
+        </div>
+        <div class="col-md-7">
+          <p>
+            Led embedded‑software integration and mechanical packaging for the ReFrame prototype. Responsibilities
+            included sensor integration, real‑time control loops, and ensuring mechanical interfaces met manufacturing constraints.
+            Delivered a working prototype and documentation for rapid iteration.
+          </p>
+          <ul>
+            <li>Embedded control and interfacing (Python, MCU firmware)</li>
+            <li>Mechanical packaging in Autodesk Fusion</li>
+            <li>Prototype PCB and sensor calibration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h4>Tools & Methods</h4>
+      <p>Autodesk Fusion, Python, PCB prototyping, bench validation and user testing.</p>
+    </section>
+
+    <section class="mt-4">
+      <a href="index.html" class="btn btn-back">Back to Portfolio</a>
+    </section>
+  </main>
+
+  <footer class="text-center mt-5 mb-4"><small>© Mateo Otero‑Diaz</small></footer>
+
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+</body>
+</html>

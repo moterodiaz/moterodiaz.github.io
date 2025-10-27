@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NASA Experience — Mateo Otero‑Diaz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    :root{
+      /* unify all non-black/white colors to the same blue */
+      --accent: #375aee;
+      --accent-2: #375aee;
+      --warm: #375aee;
+      --muted: #375aee;
+      --card-shadow: 0 8px 30px rgba(55,90,238,0.08);
+      --glass: rgba(255,255,255,0.7);
+    }
+
+    body{
+      background: linear-gradient(180deg, #f7fbff 0%, #ffffff 45%);
+      color: #222;
+    }
+
+    .navbar{
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #eee;
+    }
+
+    .nasa-header { margin-top: 60px; margin-bottom: 1rem; }
+    .nasa-header h1 { color: var(--accent-2); font-weight: 700; letter-spacing: 0.25px; }
+    .nasa-header .lead { color: #333; }
+
+    .section-title { color: var(--accent); font-weight: 600; margin-bottom: .75rem; }
+
+    .nasa-year {
+      border-radius: .65rem;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(20,20,20,0.03);
+    }
+
+    .nasa-2024 {
+      background: linear-gradient(135deg,#eef4ff,#fbfbfb);
+      border-left: 6px solid var(--accent);
+    }
+
+    .nasa-2025 {
+      background: linear-gradient(135deg,#eef4ff,#f3f7ff);
+      border-left: 6px solid var(--accent);
+    }
+
+    .work-img {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: .35rem;
+      background: var(--glass);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .work-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s ease, filter .35s ease;
+    }
+
+    .work-img:hover img { transform: scale(1.04); filter: saturate(1.05); }
+
+    .muted-note { color: var(--muted); font-size: .9rem; }
+
+    a.btn-secondary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    a.btn-secondary:hover {
+      background: var(--accent-2);
+      border-color: var(--accent-2);
+    }
+
+    .w-title { color: var(--accent); font-weight: 600; }
+
+    @media (max-width:575px) {
+      .work-img { height: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top:110px;">
+    <header class="text-center nasa-header">
+      <h1>NASA Experience</h1>
+      <p class="lead">Summary of mechanical design, analysis, and integration and testing performed at NASA Goddard</p>
+    </header>
+
+    <section>
+      <h4 class="section-title">Overview</h4>
+      <p>
+        Over two summers at NASA Goddard I worked on flight‑grade mechanical systems covering
+        design, analysis, and hands‑on integration and testing. Responsibilities included mounting
+        and support systems, gear‑train design and verification, and qualification testing of seals
+        and optical assemblies.
+      </p>
+    </section>
+
+    <section class="mt-3 nasa-year nasa-2024">
+      <h4 class="section-title">Summer 2024 — Model‑T Gear Train Design</h4>
+      <div class="row align-items-center">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <a href="img/Poster.jpg" data-lightbox="nasa-2024" data-title="Model‑T Gear Train — poster">
+            <div class="work-img">
+              <img src="img/Poster.jpg" alt="Model‑T Gear Train poster" class="img-fluid">
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-8">
+          <p>
+            During Summer 2024 I modeled and verified the Model‑T deployable telescope gear train,
+            defining geometry, material choices, and torsional requirements to meet launch and
+            deployment constraints. I used Autodesk Inventor for CAD and Mathcad to justify torque,
+            fatigue, and durability choices, and performed trade studies to reduce stress while
+            improving performance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-3 nasa-year nasa-2025">
+      <h4 class="section-title">Summer 2025 — Rigging System Design and Integration and Testing</h4>
+      <p class="mb-2">
+        Selected integration and testing activities and teaching demonstrations — click thumbnails to view full images.
+      </p>
+
+      <div class="row mb-3">
+        <div class="col-sm-4 mb-3">
+          <a href="img/Focused_NASA.jpg" data-lightbox="nasa-2025" data-title="Test setup">
+            <div class="work-img">
+              <img src="img/Focused_NASA.jpg" alt="Rigging test setup" class="img-fluid">
+            </div>
+          </a>
+        </div>
+
+        <div class="col-sm-4 mb-3">
+          <a href="img/Teaching_NASA.jpg" data-lightbox="nasa-2025" data-title="Teaching demonstration">
+            <div class="work-img">
+              <img src="img/Teaching_NASA.jpg" alt="Teaching demonstration" class="img-fluid">
+            </div>
+          </a>
+        </div>
+
+        <div class="col-sm-4 mb-3">
+          <a href="img/Individual_NASA.jpg" data-lightbox="nasa-2025" data-title="Individual work">
+            <div class="work-img">
+              <img src="img/Individual_NASA.jpg" alt="Individual integration work" class="img-fluid">
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <p>
+        In Summer 2025 I focused on rigging system design and performed hands‑on integration and testing
+        for flight‑grade hardware, including tolerance verification, vibration and leak testing,
+        optical alignment, and qualification of precision metal seals and sapphire windows. These
+        activities supported reference hardware and mission needs across multiple subsystems.
+      </p>
+
+      <p class="small muted-note mt-2">
+        Note: no images or specific data for my work on the Landsat Next startracker rigging system can be shared here as that work is classified.
+      </p>
+    </section>
+
+    <section class="mt-3">
+      <h4 class="section-title">Tools & Methods</h4>
+      <p>
+        Primary tools included Autodesk Inventor, ANSYS, MSC Nastran/ADAMS, Mathcad, and MATLAB.
+        Work followed structured test plans, environmental testing (vibration, leak, thermal/vacuum),
+        and documented verification procedures.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h4 class="section-title">Return</h4>
+      <p><a href="index.html" class="btn btn-secondary">Back to Portfolio</a></p>
+    </section>
+  </main>
+
+  <footer class="text-center mt-5 mb-4">
+    <small>© Mateo Otero‑Diaz</small>
+  </footer>
+
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+</body>
+</html>

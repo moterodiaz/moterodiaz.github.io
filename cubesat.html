@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SolarSURFER — CubeSat — Mateo Otero‑Diaz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    :root{ --accent:#375aee; --card-shadow:0 8px 30px rgba(55,90,238,0.08); --glass:rgba(255,255,255,0.7); }
+    body{ background: linear-gradient(180deg,#f7fbff 0%,#ffffff 45%); color:#222; }
+    .navbar{ background: rgba(255,255,255,0.88); backdrop-filter: blur(6px); border-bottom:1px solid #eee; }
+    .page-header{ margin-top:70px; margin-bottom:1rem; text-align:center; }
+    .page-header h1{ color:var(--accent); font-weight:700; }
+    .card-visual{ border-radius:.5rem; padding:1rem; background:#fff; box-shadow:var(--card-shadow); border:1px solid rgba(0,0,0,0.04); }
+    .work-img{ height:220px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:.35rem; background:var(--glass); }
+    .work-img img{ width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+    .work-img:hover img{ transform:scale(1.03); }
+    .btn-back{ background:var(--accent); border-color:var(--accent); color:#fff; }
+    .spec-list{ margin-top:.5rem; }
+    .spec-list li{ margin-bottom:.35rem; }
+    .doc-links a { color: var(--accent); text-decoration: none; }
+    .doc-links a:hover { text-decoration: underline; }
+    @media(max-width:575px){ .work-img{height:140px} }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container"><a class="navbar-brand" href="index.html">Portfolio</a></div>
+  </nav>
+
+  <main class="container" style="padding-top:110px;">
+    <header class="page-header">
+      <h1>SolarSURFER — CubeSat (6U)</h1>
+      <p class="lead">Design work focused on structure, deployables, and systems integration for a solar‑sailing CubeSat</p>
+    </header>
+
+    <section class="card-visual mb-3">
+      <div class="row align-items-center">
+        <div class="col-md-5 mb-3 mb-md-0">
+          <a href="img/CubeSat.png" data-lightbox="cubesat">
+            <div class="work-img"><img src="img/CubeSat.png" alt="Solar Surfer CubeSat"></div>
+          </a>
+        </div>
+        <div class="col-md-7">
+          <p>
+            SolarSURFER (Solar Sail Utilizing Radiative Forces Examining Radio‑waves) is a 6U CubeSat concept
+            that investigates sail materials, reflectarray high‑gain antennas, and inflatable/rigidizable boom
+            deployment to enable solar sailing from LEO. The project pairs sail propulsion experimentation with
+            integrated communications and hyperspectral science instrumentation.
+          </p>
+
+          <ul class="spec-list">
+            <li><strong>Form factor:</strong> 6U (30 × 20 × 10 cm) with a ~15 × 15 m sail stowed in 4U.</li>
+            <li><strong>Primary goals:</strong> sail deployment and material testing, sail‑as‑HGA reflectarray, and power + instrument integration.</li>
+            <li><strong>Project artefacts:</strong> CAD assemblies, deployment mockups, reflectarray unit‑cell HFSS models, and test procedures.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-3">
+      <h4>Mission highlights (from technical documents)</h4>
+      <p>
+        The technical document details sail composition (ultra‑thin CP1/Kapton backbone with Al+Au coatings and targeted reflectarray regions),
+        a reflectarray high‑gain antenna concept fed by an internal horn and mirror, inflatable/rigidizable booms for deployment and rigidization,
+        sail‑mounted thin‑film photovoltaic options, and a multi‑instrument science payload (including a 9‑camera hyperspectral array and magnetometers).
+      </p>
+
+      <p class="doc-links">
+        Document:
+        <a href="img/SolarSURFER Technical Document.pdf" target="_blank">SolarSURFER Technical Document (PDF)</a>
+      </p>
+    </section>
+
+    <section class="mb-3">
+      <h4>My responsibilities </h4>
+      <p>
+        As Design Lead on the SolarSURFER effort I focused on structural layout and interfaces with a strong emphasis on
+        integration and manufacturability. My responsibilities included defining the CubeSat chassis and deployable
+        interfaces in Autodesk Fusion, sizing and packaging the sail stowage and deployment path, specifying tolerances and
+        assembly sequences, and performing finite‑element checks in Siemens Femap for critical components and load cases.
+      </p>
+      <ul>
+        <li>Primary CAD work in Autodesk Fusion: chassis, instrument mounts, deployable hinge geometry, and stowage packaging.</li>
+        <li>FEA checks and verification using Siemens Femap for select structural parts and launch/load cases.</li>
+        <li>Created producible drawings, integration checklists, and flat‑sat mockup plans to support hardware testing.</li>
+        <li>Conducted Mathcad trade studies (torque/mass/performance) and produced technical slides used in external presentations.</li>
+      </ul>
+    </section>
+
+    <section class="mb-3">
+      <h4>Technical contributions (selected)</h4>
+      <ul>
+        <li>Defined sail stow/deploy geometry and folding strategy for reliable deployment from a 4U volume.</li>
+        <li>Engineered instrument mounting interfaces for reaction wheels, magnetorquers, and a 9‑camera hyperspectral payload.</li>
+        <li>Integrated reflectarray footprint and accommodation into the sail stowage and feed horn placement within the 1U volume.</li>
+        <li>Prepared assembly and verification sequences (flat‑sat, vibration, shock) to de‑risk integration and test campaigns.</li>
+      </ul>
+    </section>
+
+    <section class="mb-3">
+      <h4>Tools & methods</h4>
+      <p>
+        Primary tools used on this project: Autodesk Fusion for CAD and Siemens Femap for finite‑element checks.
+        Work followed iterative review cycles, flat‑sat integration, and generation of test procedures for qualification
+        (vibration, shock, and functional deployment tests).
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <a href="index.html" class="btn btn-back">Back to Portfolio</a>
+    </section>
+  </main>
+
+  <footer class="text-center mt-5 mb-4"><small>© Mateo Otero‑Diaz</small></footer>
+
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+</body>
+</html>

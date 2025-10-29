@@ -7,6 +7,21 @@
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  
+  <!-- START: CAROUSEL DEPENDENCIES (Tailwind is added for carousel styling) -->
+  <!-- 1. Load Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 2. Configure Tailwind to disable its CSS reset (preflight) to avoid conflicts with Bootstrap/custom CSS -->
+  <script>
+    tailwind.config = {
+      corePlugins: {
+        preflight: false, // Disables Tailwind's CSS reset
+      }
+    }
+  </script>
+  <!-- END: CAROUSEL DEPENDENCIES -->
+
+  <!-- Custom styles, placed after external links -->
   <style>
     :root{ --accent:#375aee; --card-shadow:0 8px 30px rgba(55,90,238,0.08); --glass:rgba(255,255,255,0.7); }
     body{ background: linear-gradient(180deg,#f7fbff 0%,#ffffff 45%); color:#222; }
@@ -14,6 +29,7 @@
     .page-header{ margin-top:70px; margin-bottom:1rem; text-align:center; }
     .page-header h1{ color:var(--accent); font-weight:700; }
     .card-visual{ border-radius:.5rem; padding:1rem; background:#fff; box-shadow:var(--card-shadow); border:1px solid rgba(0,0,0,0.04); }
+    /* The carousel uses its own height/sizing classes, so we're keeping this work-img style */
     .work-img{ height:220px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:.35rem; background:var(--glass); }
     .work-img img{ width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
     .work-img:hover img{ transform:scale(1.03); }
@@ -23,6 +39,15 @@
     .doc-links a { color: var(--accent); text-decoration: none; }
     .doc-links a:hover { text-decoration: underline; }
     @media(max-width:575px){ .work-img{height:140px} }
+    
+    /* Carousel specific styles (for hiding scrollbar) */
+    .carousel-slides::-webkit-scrollbar {
+        display: none;
+    }
+    .carousel-slides {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
   </style>
 </head>
 <body>
@@ -39,9 +64,58 @@
     <section class="card-visual mb-3">
       <div class="row align-items-center">
         <div class="col-md-5 mb-3 mb-md-0">
-          <a href="img/CubeSat.png" data-lightbox="cubesat">
-            <div class="work-img"><img src="img/CubeSat.png" alt="Solar Surfer CubeSat"></div>
-          </a>
+          <!-- START: CAROUSEL INTEGRATION -->
+          <div id="carousel-container" class="w-full bg-white shadow-2xl rounded-xl overflow-hidden relative border border-gray-200">
+
+              <!-- Slides Wrapper (Overflow Hidden) -->
+              <div class="overflow-hidden relative h-[300px] md:h-[350px]">
+                  <!-- Slides Track (Flex Container that slides horizontally) -->
+                  <div id="slides-track" class="carousel-slides flex w-full h-full transition-transform duration-500 ease-in-out">
+
+                      <!-- Slide 1: Original CubeSat Image -->
+                      <div class="flex-shrink-0 w-full h-full p-2 relative carousel-slide-item"> 
+                          <img
+                              src="img/CubeSat.png"
+                              alt="Solar Surfer CubeSat"
+                              class="w-full h-full object-contain rounded-lg"
+                              onerror="this.src='https://placehold.co/800x600/374151/ffffff?text=Image+Load+Error'"
+                          />
+                          <div class="absolute bottom-4 left-0 right-0 text-center text-xs font-medium text-white p-1 bg-black bg-opacity-50">
+                              View 1: CubeSat Assembly
+                          </div>
+                      </div>
+
+                      <!-- Slide 2: Reaction Wheel Render -->
+                      <div class="flex-shrink-0 w-full h-full p-2 relative carousel-slide-item"> 
+                          <img
+                              src="img/Reaction_Wheel_Render.png"
+                              alt="Reaction Wheel Render"
+                              class="w-full h-full object-contain rounded-lg"
+                              onerror="this.src='https://placehold.co/800x600/374151/ffffff?text=Image+Load+Error'"
+                          />
+                          <div class="absolute bottom-4 left-0 right-0 text-center text-xs font-medium text-white p-1 bg-black bg-opacity-50">
+                              View 2: Reaction Wheel Subsystem Render
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+
+              <!-- Navigation Buttons (Tailwind classes) -->
+              <button id="prev-btn" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 p-2 rounded-full shadow-md transition-colors z-10 focus:outline-none focus:ring-4 focus:ring-indigo-500">
+                  <svg class="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+              </button>
+
+              <button id="next-btn" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-80 p-2 rounded-full shadow-md transition-colors z-10 focus:outline-none focus:ring-4 focus:ring-indigo-500">
+                  <svg class="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </button>
+
+              <!-- Indicators (Dots) -->
+              <div id="indicators" class="flex justify-center space-x-2 py-2 border-t border-gray-100 bg-gray-50">
+                  <!-- Dots will be injected here by JavaScript -->
+              </div>
+          </div>
+          <!-- END: CAROUSEL INTEGRATION -->
         </div>
         <div class="col-md-7">
           <p>
@@ -55,7 +129,7 @@
             <li><strong>Form factor:</strong> 6U (30 × 20 × 10 cm) with a ~15 × 15 m sail stowed in 4U.</li>
             <li><strong>Primary goals:</strong> sail deployment and material testing, sail‑as‑HGA reflectarray, and power + instrument integration.</li>
             <li><strong>Project artefacts:</strong> CAD assemblies, deployment mockups, reflectarray unit‑cell HFSS models, and test procedures.</li>
-          </ul>
+            </ul>
         </div>
       </div>
     </section>
@@ -119,5 +193,101 @@
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <!-- START: CAROUSEL JAVASCRIPT LOGIC -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.getElementById('slides-track');
+        // Check if the carousel elements exist before trying to initialize
+        if (!track) return;
+
+        // Query for a specific class to only count intended slides
+        const slides = track.querySelectorAll('.carousel-slide-item');
+        const totalSlides = slides.length;
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const indicatorsContainer = document.getElementById('indicators');
+
+        let currentSlideIndex = 0;
+
+        // Function to generate and manage indicators
+        const setupIndicators = () => {
+            indicatorsContainer.innerHTML = ''; // Clear existing dots if any
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-gray-300', 'hover:bg-gray-500', 'transition-colors', 'focus:outline-none', 'focus:ring-2', 'focus:ring-indigo-500');
+                dot.setAttribute('data-index', index);
+                dot.addEventListener('click', () => showSlide(index));
+                indicatorsContainer.appendChild(dot);
+            });
+        };
+
+        // Main function to update the carousel position and state
+        const showSlide = (index) => {
+            // Ensure the index loops around
+            if (index >= totalSlides) {
+                currentSlideIndex = 0;
+            } else if (index < 0) {
+                currentSlideIndex = totalSlides - 1;
+            } else {
+                currentSlideIndex = index;
+            }
+
+            // Calculate the amount to translate the track
+            const offset = -currentSlideIndex * 100;
+            track.style.transform = `translateX(${offset}%)`;
+
+            // Update indicators
+            const dots = indicatorsContainer.querySelectorAll('button');
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlideIndex) {
+                    dot.classList.replace('bg-gray-300', 'bg-indigo-600');
+                    dot.classList.replace('hover:bg-gray-500', 'hover:bg-indigo-600');
+                } else {
+                    dot.classList.replace('bg-indigo-600', 'bg-gray-300');
+                    dot.classList.replace('hover:bg-indigo-600', 'hover:bg-gray-500');
+                }
+            });
+        };
+
+        // Event listeners for navigation buttons
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlideIndex + 1);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlideIndex - 1);
+        });
+
+        // Initialize the carousel
+        setupIndicators();
+        showSlide(0);
+
+        // Add basic swipe support for touch devices
+        let startX = 0;
+        let endX = 0;
+        const carouselContainer = document.getElementById('carousel-container');
+
+        carouselContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        carouselContainer.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+        }, { passive: true });
+
+        carouselContainer.addEventListener('touchend', () => {
+            const diff = startX - endX;
+            // Swipe right (show previous slide)
+            if (diff > 50) {
+                showSlide(currentSlideIndex + 1);
+            }
+            // Swipe left (show next slide)
+            else if (diff < -50) {
+                showSlide(currentSlideIndex - 1);
+            }
+        });
+    });
+  </script>
+  <!-- END: CAROUSEL JAVASCRIPT LOGIC -->
 </body>
 </html>
